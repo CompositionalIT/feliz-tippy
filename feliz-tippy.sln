@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{08CCFCF6-2248-43ED-A6EF-E972A2DA0E6A}"
+	ProjectSection(SolutionItems) = preProject
+		package-lock.json = package-lock.json
+		package.json = package.json
+		README.md = README.md
+		webpack.config.js = webpack.config.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F84DCF8A-FC1A-4677-AF4D-616AD7DB3470}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "SampleApp", "src\SampleApp\SampleApp.fsproj", "{B96F7A7F-86B5-48C3-A038-A1A76AE25FC5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B96F7A7F-86B5-48C3-A038-A1A76AE25FC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B96F7A7F-86B5-48C3-A038-A1A76AE25FC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B96F7A7F-86B5-48C3-A038-A1A76AE25FC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B96F7A7F-86B5-48C3-A038-A1A76AE25FC5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B96F7A7F-86B5-48C3-A038-A1A76AE25FC5} = {F84DCF8A-FC1A-4677-AF4D-616AD7DB3470}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D67FA26D-65F1-4861-AB5F-0F440F2C816E}
+	EndGlobalSection
+EndGlobal
