@@ -1,0 +1,10 @@
+source "C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\"
+source https://api.nuget.org/v3/index.json
+
+nuget FSharp.Core
+nuget Fable.Core 3.2.2
+nuget Fable.Elmish 3.0.6
+nuget Fable.Elmish.Debugger 3.2.0
+nuget Fable.Elmish.Hmr 4.0.1
+nuget Fable.Elmish.React 3.0.1
+nuget Feliz 1.31.1

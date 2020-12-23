@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
-        <DefineConstants>FABLE_COMPILER</DefineConstants>
-    </PropertyGroup>
-    <ItemGroup>
-        <None Include="index.html" />
-        <Compile Include="Feliz.Tippy.fs" />
-        <Compile Include="Index.fs" />
-        <Compile Include="App.fs" />
-    </ItemGroup>
-    <ItemGroup>
-        <PackageReference Include="Fable.Core" Version="3.2.2" />
-        <PackageReference Include="Fable.Elmish" Version="3.0.6" />
-        <PackageReference Include="Fable.Elmish.React" Version="3.0.1" />
-        <PackageReference Include="Fable.Elmish.Debugger" Version="3.2.0" />
-        <PackageReference Include="Fable.Elmish.Hmr" Version="4.0.1" />
-        <PackageReference Include="Feliz" Version="1.31.1" />
-    </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <DefineConstants>FABLE_COMPILER</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="index.html" />
+    <Compile Include="Index.fs" />
+    <Compile Include="App.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Feliz.Tippy\Feliz.Tippy.fsproj" />
+  </ItemGroup>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>

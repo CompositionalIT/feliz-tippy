@@ -3,7 +3,6 @@ module Index
 open Elmish
 
 open Feliz.Tippy
-open Fable.Core.JsInterop
 open Feliz
 
 type Model =
@@ -31,6 +30,7 @@ let view model dispatch =
             img [ Src "favicon.png" ]
             Tippy.create [
                 Tippy.content (em [] [ str "hello world" ])
+                Tippy.placement LeftStart
                 prop.children [h1 [] [ str "feliz_tippy" ]]
             ]
         ]
