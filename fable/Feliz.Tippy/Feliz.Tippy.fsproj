@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageVersion>0.0.1-alpha</PackageVersion>
+    <Title>Feliz.Tippy</Title>
+    <Authors>Compositional IT</Authors>
+    <Description>A Feliz wrapper for tippyjs-react.</Description>
+    <PackageProjectUrl>https://github.com/CompositionalIT/feliz-tippy</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/CompositionalIT/feliz-tippy</RepositoryUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Feliz.Tippy.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="*.fsproj; **\*.fs; **\*.fsi" PackagePath="fable\" />
+  </ItemGroup>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>

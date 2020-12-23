@@ -17,7 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F84DCF8A-FC1
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "SampleApp", "src\SampleApp\SampleApp.fsproj", "{B96F7A7F-86B5-48C3-A038-A1A76AE25FC5}"
 EndProject
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Feliz.Tippy", "src\Feliz.Tippy\Feliz.Tippy.fsproj", "{BFFF5C48-E8D1-4728-AA78-C865727FC6AC}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Feliz.Tippy", "fable\Feliz.Tippy\Feliz.Tippy.fsproj", "{BFFF5C48-E8D1-4728-AA78-C865727FC6AC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fable", "fable", "{566851D0-E546-47ED-93F1-9AB7DFA09785}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,7 +41,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B96F7A7F-86B5-48C3-A038-A1A76AE25FC5} = {F84DCF8A-FC1A-4677-AF4D-616AD7DB3470}
-		{BFFF5C48-E8D1-4728-AA78-C865727FC6AC} = {F84DCF8A-FC1A-4677-AF4D-616AD7DB3470}
+		{BFFF5C48-E8D1-4728-AA78-C865727FC6AC} = {566851D0-E546-47ED-93F1-9AB7DFA09785}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D67FA26D-65F1-4861-AB5F-0F440F2C816E}

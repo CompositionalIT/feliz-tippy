@@ -10,7 +10,7 @@
     <Compile Include="App.fs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Feliz.Tippy\Feliz.Tippy.fsproj" />
+    <ProjectReference Include="..\..\fable\Feliz.Tippy\Feliz.Tippy.fsproj" />
   </ItemGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>
