@@ -4,6 +4,7 @@ open Elmish
 
 open Feliz.Tippy
 open Fable.Core.JsInterop
+open Feliz
 
 type Model =
     { Hello: string }
@@ -28,11 +29,9 @@ let view model dispatch =
     div [ Style [ TextAlign TextAlignOptions.Center; Padding 40 ] ] [
         div [] [
             img [ Src "favicon.png" ]
-            createTippy [
-                "content" ==> em [] [ str "hello world" ]
-            ] [
-                h1 [] [ str "feliz_tippy" ]
+            Tippy.create [
+                Tippy.content (em [] [ str "hello world" ])
+                prop.children [h1 [] [ str "feliz_tippy" ]]
             ]
-            h2 [] [ str model.Hello ]
         ]
     ]
