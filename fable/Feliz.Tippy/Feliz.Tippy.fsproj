@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <PackageVersion>0.0.1-alpha</PackageVersion>
     <Title>Feliz.Tippy</Title>
     <Authors>Compositional IT</Authors>
@@ -10,6 +10,7 @@
     <RepositoryUrl>https://github.com/CompositionalIT/feliz-tippy</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="paket.references" />
     <Compile Include="Feliz.Tippy.fs" />
   </ItemGroup>
   <ItemGroup>
