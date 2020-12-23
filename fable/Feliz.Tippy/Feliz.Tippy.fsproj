@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <PackageVersion>0.0.1-alpha</PackageVersion>
+    <PackageVersion>0.0.3-alpha</PackageVersion>
     <Title>Feliz.Tippy</Title>
     <Authors>Compositional IT</Authors>
     <Description>A Feliz wrapper for tippyjs-react.</Description>
@@ -16,5 +16,10 @@
   <ItemGroup>
     <Content Include="*.fsproj; **\*.fs; **\*.fsi" Exclude="obj\**; bin\**" PackagePath="fable\" />
   </ItemGroup>
+  <PropertyGroup>
+    <NpmDependencies>
+      <NpmPackage Name="@tippyjs/react" Version="gt 4.0.0 lt 5.0.0" ResolutionStrategy="Max" />
+    </NpmDependencies>
+  </PropertyGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>
