@@ -114,18 +114,22 @@ type Rect =
 [<Erase>]
 type Tippy =
     
+    /// The content of the tippy.
     static member inline content (reactElement:ReactElement) =
         prop.custom("content", reactElement)
 
+    /// The content of the tippy.
     static member inline content (content : string) =
         prop.custom("content", content)
 
     static member inline disabled  =
         prop.custom("disabled", true)
 
+    /// The preferred placement of the tippy.
     static member inline placement (position : Placement) =
         prop.custom("placement", position.Value)
 
+    /// Delay in ms once a trigger event is fired before a tippy shows or hides.
     static member inline delay (Milliseconds delay) =
         prop.custom("delay", delay)
 
@@ -133,14 +137,19 @@ type Tippy =
     //static member inline allowHTML (allow : bool) =
     //    prop.custom("allowHTML", allow)
 
+    /// Determines if the background fill color of the tippy should be animated.
+    /// 
     /// Requires you to pass Tippy.Plugins.animateFill to Tippy.plugins
     static member inline animateFill =
         prop.custom("animateFill", true)
 
+    /// The type of transition animation.
+    ///
     /// Requires CSS imports - currently done by default in the binding, may move to Client responsibility.
     static member inline animation  (animation : Animation) =
         prop.custom("animation", animation.Value)
 
+    /// Adds an elastic inertial effect to the tippy, which is a limited CSS-only way to mimic spring physics.
     static member inline inertia  =
         prop.custom("inertia", true)
 
@@ -148,13 +157,17 @@ type Tippy =
     //static member inline appendTo (reactElement : ReactElement) =
     //    prop.custom("appendTo", reactElement)
 
+    /// Determines if the tippy has an arrow.
     static member inline arrow (enabled : bool) =
         prop.custom("arrow", enabled)
 
+    /// Determines if the tippy has an arrow.
+    ///
     /// A string is parsed as .innerHTML. Don't pass unknown user data to this prop.
     static member inline arrow (svg : string) =
         prop.custom("arrow", svg)
 
+    /// Duration in ms of the transition animation.
     static member inline duration (?show : Milliseconds, ?hide : Milliseconds) =
         prop.custom(
             "duration", 
@@ -165,11 +178,15 @@ type Tippy =
     static member inline followCursor (follow : bool) =
         prop.custom("followCursor", follow)
 
+    /// Plugins to use
     static member inline plugins (plugins : obj[]) =
         prop.custom("plugins", plugins)
 
+    ///Used as the positioning reference for the tippy.
     static member inline getReferenceClientRect (getRect : unit -> Rect) =
         prop.custom("getReferenceClientRect", getRect)
+
+
 
     static member inline create (props : IReactProperty seq) = 
         let elements = splitChildProps props
