@@ -111,6 +111,26 @@ type Rect =
       Top : int
       Bottom : int }
 
+type HideOnClick =
+    | Hide
+    | DontHide
+    | Toggle
+
+type Trigger =
+    | MouseEnterFocus
+    | Click
+    | FocusIn
+    | MouseEnterClick
+    | Manual
+
+    member this.Value =
+        match this with
+        | MouseEnterFocus -> "mouseenter focus"
+        | Click -> "click"
+        | FocusIn -> "focusin"
+        | MouseEnterClick -> "mouseenter click"
+        | Manual -> "manual"
+
 [<Erase>]
 type Tippy =
     
@@ -186,7 +206,14 @@ type Tippy =
     static member inline getReferenceClientRect (getRect : unit -> Rect) =
         prop.custom("getReferenceClientRect", getRect)
 
+    static member inline hideOnClick (hideOnClick : HideOnClick) =
+        match hideOnClick with
+        | Hide -> prop.custom("hideOnClick", true)
+        | DontHide -> prop.custom("hideOnClick", false)
+        | Toggle -> prop.custom("hideOnClick", "trigger")
 
+    static member inline trigger (trigger : Trigger) =
+        prop.custom("trigger", trigger.Value)
 
     static member inline create (props : IReactProperty seq) = 
         let elements = splitChildProps props
