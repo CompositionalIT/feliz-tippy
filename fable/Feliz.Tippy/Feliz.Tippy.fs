@@ -5,7 +5,9 @@ open Fable.Core
 open System
 
 let tippy : obj = importDefault "@tippyjs/react"
-let followCursorPlugin : obj = import "followCursor" "tippy.js"
+
+module Plugins =
+    let followCursorPlugin : obj = import "followCursor" "tippy.js"
 
 importAll "tippy.js/dist/tippy.css"
 importAll "tippy.js/animations/scale.css"

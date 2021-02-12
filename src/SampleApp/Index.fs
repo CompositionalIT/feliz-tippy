@@ -39,7 +39,7 @@ let view model dispatch =
                 Tippy.delay (Milliseconds 500)
                 Tippy.animation (Animation.Perspective Extreme)
                 Tippy.duration (show = Milliseconds 1000, hide = (Milliseconds 1000))
-                Tippy.plugins [| followCursorPlugin |]
+                Tippy.plugins [| Tippy.Plugins.followCursorPlugin |]
                 Tippy.followCursor true
                 prop.children [h1 [] [ str "feliz_tippy" ]]
             ]
