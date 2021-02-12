@@ -44,7 +44,14 @@ let view model dispatch =
                 //Tippy.animateFill
                 //Tippy.followCursor true
                 //Tippy.disabled
-
+                //Tippy.getReferenceClientRect
+                //    (fun () -> 
+                //        { Width = 10
+                //          Height = 10
+                //          Left = 0
+                //          Right = 0
+                //          Top = 0
+                //          Bottom = 0 })
                 prop.children [h1 [] [ str "feliz_tippy" ]]
             ]
         ]

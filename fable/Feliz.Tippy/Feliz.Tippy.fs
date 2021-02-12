@@ -103,6 +103,14 @@ type Animation =
         | ShiftAway v -> "shift-away" + v.Value 
         | ShiftToward v -> "shift-toward" + v.Value
 
+type Rect =
+    { Width : int
+      Height : int
+      Left : int
+      Right : int
+      Top : int
+      Bottom : int }
+
 [<Erase>]
 type Tippy =
     
@@ -160,8 +168,8 @@ type Tippy =
     static member inline plugins (plugins : obj[]) =
         prop.custom("plugins", plugins)
 
-    
-
+    static member inline getReferenceClientRect (getRect : unit -> Rect) =
+        prop.custom("getReferenceClientRect", getRect)
 
     static member inline create (props : IReactProperty seq) = 
         let elements = splitChildProps props
