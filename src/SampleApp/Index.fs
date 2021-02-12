@@ -36,7 +36,7 @@ let view model dispatch =
                     Plugins.followCursor
                     Plugins.animateFill
                     Plugins.inlinePositioning |]
-                Tippy.content (em [] [ str "hello world" ])
+                Tippy.content (em [] [ str "hello world  xxxxxx yyyyy zzzzzz" ])
                 Tippy.placement Auto
                 //Tippy.arrow false
                 //Tippy.arrow "<svg width=\"100\" height=\"100\"><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\" /></svg>"
@@ -58,7 +58,10 @@ let view model dispatch =
                 //Tippy.trigger MouseEnterClick
                 //Tippy.hideOnClick DontHide
                 //Tippy.inlinePositioning
-
+                //Tippy.interactive 
+                //Tippy.interactiveBorder 100
+                //Tippy.offset { Skidding = 200; Distance = 200 }
+                //Tippy.maxWidth 100
                 prop.children [h1 [] [ str "feliz_tippy" ]]
             ]
         ]

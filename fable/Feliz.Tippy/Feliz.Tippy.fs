@@ -132,6 +132,10 @@ type Trigger =
         | MouseEnterClick -> "mouseenter click"
         | Manual -> "manual"
 
+type Offset =
+    { Skidding : int
+      Distance : int }
+
 [<Erase>]
 type Tippy =
     
@@ -172,7 +176,7 @@ type Tippy =
     static member inline inertia  =
         prop.custom("inertia", true)
 
-    // Not working, needs a DOM ref I think - https://atomiks.github.io/tippyjs/v6/all-props/#appendto
+    // Not working, needs a DOM ref - https://atomiks.github.io/tippyjs/v6/all-props/#appendto
     //static member inline appendTo (reactElement : ReactElement) =
     //    prop.custom("appendTo", reactElement)
 
@@ -222,6 +226,43 @@ type Tippy =
     /// Requires you to pass Tippy.Plugins.inlinePositioning to Tippy.plugins
     static member inline inlinePositioning   =
         prop.custom("inlinePositioning ", true)
+
+    /// Determines if the tippy has interactive content inside of it,
+    /// so that it can be hovered over and clicked inside without hiding.
+    static member inline interactive   =
+        prop.custom("interactive", true)
+
+    // Doesn't seem to work
+    //
+    /// Determines the size of the invisible border around the tippy that
+    /// will prevent it from hiding if the cursor left it.
+    static member inline interactiveBorder (size : int)   =
+        prop.custom("interactiveBorder", size)
+
+    /// Determines the time in ms to debounce the interactive hide handler
+    /// when the cursor leaves the tippy's interactive region.
+    /// Offers a temporal (rather than spacial) alternative to interactiveBorder, 
+    /// although it can be used in conjunction with it.
+    static member inline interactiveDebounce (time : Milliseconds) =
+        prop.custom("interactiveDebounce", time.Value)
+
+    /// Specifies the maximum width of the tippy. Useful to prevent it from being
+    /// too horizontally wide to read.
+    /// Note
+    /// This is applied to the .tippy-box (inner element), rather than the root 
+    /// positioned popper node. The core CSS applies max-width: calc(100vw - 10px) 
+    /// on the root popper node to prevent it from exceeding the viewport width on small screens.
+    static member inline maxWidth (?width : int) =
+        match width with
+        | Some width -> prop.custom("maxWidth", width)
+        | None -> prop.custom("maxWidth", "none")
+
+    /// Displaces the tippy from its reference element in pixels (skidding and distance).
+    static member inline offset (offset : Offset) =
+        prop.custom(
+            "offset", 
+            [| offset.Skidding
+               offset.Distance |])
 
     static member inline create (props : IReactProperty seq) = 
         let elements = splitChildProps props
