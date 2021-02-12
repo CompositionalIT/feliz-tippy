@@ -7,6 +7,17 @@ let tippy : obj = importDefault "@tippyjs/react"
 
 importAll "tippy.js/dist/tippy.css"
 
+let splitChildProps props = 
+    let (children, props) = 
+        props
+        |> unbox<(string*obj) seq>
+        |> Seq.toArray
+        |> Array.partition (fun (key,_) -> key = "children")
+
+    let children = children |> Array.tryLast |> Option.map snd |> Option.toObj
+
+    {| Props = props; Children = children |}
+
 type Placement =
     | Top
     | TopStart
@@ -52,13 +63,8 @@ type Tippy =
         prop.custom("placement", position.Value)
 
     static member inline create (props : IReactProperty seq) = 
-        let (children, props) = 
-            props
-            |> unbox<(string*obj) seq>
-            |> Seq.toArray
-            |> Array.partition (fun (key,_) -> key = "children")
-            
-        let children = children |> Array.tryLast |> Option.map snd |> Option.toObj
 
-        Interop.reactApi.createElement(tippy, createObj !!props, !!children)
+        let elements = splitChildProps props
+
+        Interop.reactApi.createElement(tippy, createObj !!elements.Props, !!elements.Children)
 

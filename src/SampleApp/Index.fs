@@ -30,7 +30,7 @@ let view model dispatch =
             img [ Src "favicon.png" ]
             Tippy.create [
                 Tippy.content (em [] [ str "hello world" ])
-                Tippy.placement LeftStart
+                Tippy.placement Auto
                 prop.children [h1 [] [ str "feliz_tippy" ]]
             ]
         ]
