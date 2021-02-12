@@ -225,7 +225,7 @@ type Tippy =
     /// It will choose the most appropriate rect based on the placement.
     /// Requires you to pass Tippy.Plugins.inlinePositioning to Tippy.plugins
     static member inline inlinePositioning   =
-        prop.custom("inlinePositioning ", true)
+        prop.custom("inlinePositioning", true)
 
     /// Determines if the tippy has interactive content inside of it,
     /// so that it can be hovered over and clicked inside without hiding.
