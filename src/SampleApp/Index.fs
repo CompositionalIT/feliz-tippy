@@ -32,7 +32,10 @@ let view model dispatch =
         div [] [
             img [ Src "favicon.png" ]
             Tippy.create [
-                Tippy.plugins [| Tippy.Plugins.followCursor; Plugins.animateFill |]
+                Tippy.plugins [| 
+                    Plugins.followCursor
+                    Plugins.animateFill
+                    Plugins.inlinePositioning |]
                 Tippy.content (em [] [ str "hello world" ])
                 Tippy.placement Auto
                 //Tippy.arrow false
@@ -52,8 +55,10 @@ let view model dispatch =
                 //          Right = 0
                 //          Top = 0
                 //          Bottom = 0 })
-                Tippy.trigger MouseEnterFocus
-                Tippy.hideOnClick Hide
+                //Tippy.trigger MouseEnterClick
+                //Tippy.hideOnClick DontHide
+                //Tippy.inlinePositioning
+
                 prop.children [h1 [] [ str "feliz_tippy" ]]
             ]
         ]

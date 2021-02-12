@@ -9,6 +9,7 @@ let tippy : obj = importDefault "@tippyjs/react"
 module Plugins =
     let followCursor : obj = import "followCursor" "tippy.js"
     let animateFill : obj = import "animateFill" "tippy.js"
+    let inlinePositioning : obj = import "inlinePositioning" "tippy.js"
 
 importAll "tippy.js/dist/tippy.css"
 importAll "tippy.js/dist/backdrop.css"
@@ -158,13 +159,11 @@ type Tippy =
     //    prop.custom("allowHTML", allow)
 
     /// Determines if the background fill color of the tippy should be animated.
-    /// 
     /// Requires you to pass Tippy.Plugins.animateFill to Tippy.plugins
     static member inline animateFill =
         prop.custom("animateFill", true)
 
     /// The type of transition animation.
-    ///
     /// Requires CSS imports - currently done by default in the binding, may move to Client responsibility.
     static member inline animation  (animation : Animation) =
         prop.custom("animation", animation.Value)
@@ -182,7 +181,6 @@ type Tippy =
         prop.custom("arrow", enabled)
 
     /// Determines if the tippy has an arrow.
-    ///
     /// A string is parsed as .innerHTML. Don't pass unknown user data to this prop.
     static member inline arrow (svg : string) =
         prop.custom("arrow", svg)
@@ -202,18 +200,28 @@ type Tippy =
     static member inline plugins (plugins : obj[]) =
         prop.custom("plugins", plugins)
 
-    ///Used as the positioning reference for the tippy.
+    /// Used as the positioning reference for the tippy.
     static member inline getReferenceClientRect (getRect : unit -> Rect) =
         prop.custom("getReferenceClientRect", getRect)
 
+    /// Determines if the tippy hides upon clicking the reference or outside of the tippy. 
+    /// The behavior can depend upon the trigger events used.
     static member inline hideOnClick (hideOnClick : HideOnClick) =
         match hideOnClick with
         | Hide -> prop.custom("hideOnClick", true)
         | DontHide -> prop.custom("hideOnClick", false)
         | Toggle -> prop.custom("hideOnClick", "trigger")
 
+    /// Determines the events that cause the tippy to show. 
+    /// Multiple event names are separated by spaces.
     static member inline trigger (trigger : Trigger) =
         prop.custom("trigger", trigger.Value)
+
+    /// Provides enhanced support for display: inline elements. 
+    /// It will choose the most appropriate rect based on the placement.
+    /// Requires you to pass Tippy.Plugins.inlinePositioning to Tippy.plugins
+    static member inline inlinePositioning   =
+        prop.custom("inlinePositioning ", true)
 
     static member inline create (props : IReactProperty seq) = 
         let elements = splitChildProps props
