@@ -53,6 +53,8 @@ type Placement =
         | AutoStart -> "auto-start"
         | AutoEnd -> "auto-end"
 
+type Milliseconds = Milliseconds of int
+
 [<Erase>]
 type Tippy =
     
@@ -61,6 +63,9 @@ type Tippy =
 
     static member inline placement (position : Placement) =
         prop.custom("placement", position.Value)
+
+    static member inline delay (Milliseconds delay) =
+        prop.custom("delay", delay)
 
     static member inline create (props : IReactProperty seq) = 
 

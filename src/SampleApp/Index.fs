@@ -31,6 +31,7 @@ let view model dispatch =
             Tippy.create [
                 Tippy.content (em [] [ str "hello world" ])
                 Tippy.placement Auto
+                Tippy.delay (Milliseconds 1000)
                 prop.children [h1 [] [ str "feliz_tippy" ]]
             ]
         ]
