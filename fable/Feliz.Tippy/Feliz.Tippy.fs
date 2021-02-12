@@ -7,9 +7,11 @@ open System
 let tippy : obj = importDefault "@tippyjs/react"
 
 module Plugins =
-    let followCursorPlugin : obj = import "followCursor" "tippy.js"
+    let followCursor : obj = import "followCursor" "tippy.js"
+    let animateFill : obj = import "animateFill" "tippy.js"
 
 importAll "tippy.js/dist/tippy.css"
+importAll "tippy.js/dist/backdrop.css"
 importAll "tippy.js/animations/scale.css"
 importAll "tippy.js/animations/scale-subtle.css"
 importAll "tippy.js/animations/scale-extreme.css"
@@ -79,6 +81,7 @@ type AnimationVariation =
     | Normal
     | Subtle
     | Extreme
+
     member this.Value =
         match this with
         | Normal -> String.Empty
@@ -109,6 +112,9 @@ type Tippy =
     static member inline content (content : string) =
         prop.custom("content", content)
 
+    static member inline disabled  =
+        prop.custom("disabled", true)
+
     static member inline placement (position : Placement) =
         prop.custom("placement", position.Value)
 
@@ -119,17 +125,16 @@ type Tippy =
     //static member inline allowHTML (allow : bool) =
     //    prop.custom("allowHTML", allow)
 
-    // Needs plugin - https://atomiks.github.io/tippyjs/v6/all-props/#animatefill
-    //static member inline animateFill =
-    //    prop.custom("animateFill", true)
+    /// Requires you to pass Tippy.Plugins.animateFill to Tippy.plugins
+    static member inline animateFill =
+        prop.custom("animateFill", true)
 
     /// Requires CSS imports - currently done by default in the binding, may move to Client responsibility.
     static member inline animation  (animation : Animation) =
         prop.custom("animation", animation.Value)
 
-    // Not sure how to make this work - https://atomiks.github.io/tippyjs/v6/animations/#inertia
-    //static member inline inertia  =
-    //    prop.custom("inertia", true)
+    static member inline inertia  =
+        prop.custom("inertia", true)
 
     // Not working, needs a DOM ref I think - https://atomiks.github.io/tippyjs/v6/all-props/#appendto
     //static member inline appendTo (reactElement : ReactElement) =
@@ -148,7 +153,7 @@ type Tippy =
             [| show |> Option.map (fun m -> m.Value)
                hide |> Option.map (fun m -> m.Value) |])
 
-    /// Requires you to pass "followCursorPlugin" to Tippy.plugins
+    /// Requires you to pass Tippy.Plugins.followCursor to Tippy.plugins
     static member inline followCursor (follow : bool) =
         prop.custom("followCursor", follow)
 

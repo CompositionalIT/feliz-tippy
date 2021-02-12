@@ -32,15 +32,19 @@ let view model dispatch =
         div [] [
             img [ Src "favicon.png" ]
             Tippy.create [
+                Tippy.plugins [| Tippy.Plugins.followCursor; Plugins.animateFill |]
                 Tippy.content (em [] [ str "hello world" ])
                 Tippy.placement Auto
                 //Tippy.arrow false
                 //Tippy.arrow "<svg width=\"100\" height=\"100\"><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\" /></svg>"
-                Tippy.delay (Milliseconds 500)
-                Tippy.animation (Animation.Perspective Extreme)
-                Tippy.duration (show = Milliseconds 1000, hide = (Milliseconds 1000))
-                Tippy.plugins [| Tippy.Plugins.followCursorPlugin |]
-                Tippy.followCursor true
+                //Tippy.delay (Milliseconds 500)
+                //Tippy.animation (Animation.Scale Extreme)
+                //Tippy.inertia
+                //Tippy.duration (show = Milliseconds 1000, hide = (Milliseconds 1000))
+                //Tippy.animateFill
+                //Tippy.followCursor true
+                //Tippy.disabled
+
                 prop.children [h1 [] [ str "feliz_tippy" ]]
             ]
         ]
