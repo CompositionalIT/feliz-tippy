@@ -336,6 +336,9 @@ type Tippy =
         | Hold -> prop.custom("touch", "hold")
         | LongPress time -> prop.custom("touch", Interop.mkStyle "hold" time.TotalSeconds)
 
+    static member inline zIndex (z : int) =
+        prop.custom("zIndex", z)
+
     static member inline create (props : IReactProperty seq) = 
         let elements = splitChildProps props
         Interop.reactApi.createElement(tippy, createObj !!elements.Props, !!elements.Children)

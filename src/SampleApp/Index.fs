@@ -64,6 +64,7 @@ let view model dispatch =
                 //Tippy.offset { Skidding = 200; Distance = 200 }
                 //Tippy.maxWidth 100
                 //Tippy.touch (LongPress (TimeSpan.FromSeconds 500.))
+                Tippy.zIndex 10
                 prop.children [h1 [] [ str "feliz_tippy" ]]
             ]
         ]
