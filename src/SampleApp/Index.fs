@@ -9,6 +9,7 @@ open Fable.React.Props
 
 open Feliz.Tippy
 open Feliz
+open System
 
 
 type Model =
@@ -62,6 +63,7 @@ let view model dispatch =
                 //Tippy.interactiveBorder 100
                 //Tippy.offset { Skidding = 200; Distance = 200 }
                 //Tippy.maxWidth 100
+                //Tippy.touch (LongPress (TimeSpan.FromSeconds 500.))
                 prop.children [h1 [] [ str "feliz_tippy" ]]
             ]
         ]

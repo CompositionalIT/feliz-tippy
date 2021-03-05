@@ -25,6 +25,10 @@ importAll "tippy.js/animations/shift-away-extreme.css"
 importAll "tippy.js/animations/shift-toward.css"
 importAll "tippy.js/animations/shift-toward-subtle.css"
 importAll "tippy.js/animations/shift-toward-extreme.css"
+importAll "tippy.js/themes/light.css"
+importAll "tippy.js/themes/light-border.css"
+importAll "tippy.js/themes/material.css"
+importAll "tippy.js/themes/translucent.css"
 
 let splitChildProps props = 
     let (children, props) = 
@@ -135,6 +139,54 @@ type Trigger =
 type Offset =
     { Skidding : int
       Distance : int }
+
+//type TransitionTimingFunction =
+//    | Ease
+//    | EaseIn
+//    | EaseOut
+//    | EaseInOut
+//    | Linear
+//    | StepStart
+//    | StepEnd
+//    | Custom of string
+//    member this.Value =
+//        match this with
+//        | Ease -> "ease"
+//        | EaseIn -> "ease-in"
+//        | EaseOut -> "ease-out"
+//        | EaseInOut -> "ease-in-out"
+//        | Linear -> "linear"
+//        | StepStart -> "step-start"
+//        | StepEnd -> "step-end"
+//        | Custom t -> t
+
+//type Transition =
+//    { CSSProperty : string
+//      Duration : TimeSpan
+//      TimingFunction : TransitionTimingFunction
+//      Delay : TimeSpan }
+//    member this.Value = 
+//        sprintf "%s %fs %s %fs" this.CSSProperty this.Duration.TotalSeconds this.TimingFunction.Value this.Delay.TotalSeconds
+
+type Theme =
+    | Light
+    | LightBorder
+    | Material
+    | Translucent
+    | Custom of string
+    member this.Value = 
+        match this with
+        | Light -> "light"
+        | LightBorder -> "light-border"
+        | Material -> "material"
+        | Translucent -> "translucent"
+        | Custom theme -> theme
+
+type TouchBehaviour =
+    | On
+    | Off
+    | Hold
+    | LongPress of TimeSpan
 
 [<Erase>]
 type Tippy =
@@ -263,6 +315,23 @@ type Tippy =
             "offset", 
             [| offset.Skidding
                offset.Distance |])
+
+    // Useful when you have a singleton Tippy instance to define how it transitions from one place to another
+    ///// Specifies the transition applied to the root positioned popper node. This describes
+    ///// the transition between "moves" (or position updates) of the popper element when it
+    ///// e.g. flips or changes target location.
+    //static member inline moveTransition (transition : Transition) =
+    //    prop.custom("moveTransition", transition.Value)
+
+    static member inline theme (theme : Theme) =
+        prop.custom("theme", theme.Value)
+
+    static member inline touch (touchBehaviour : TouchBehaviour) =
+        match touchBehaviour with
+        | On -> prop.custom("touch", true)
+        | Off -> prop.custom("touch", false)
+        | Hold -> prop.custom("touch", "hold")
+        | LongPress time -> prop.custom("touch", Interop.mkStyle "hold" time.TotalSeconds)
 
     static member inline create (props : IReactProperty seq) = 
         let elements = splitChildProps props
