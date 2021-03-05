@@ -56,7 +56,7 @@ let view model dispatch =
                 //          Right = 0
                 //          Top = 0
                 //          Bottom = 0 })
-                Tippy.trigger [MouseEnter; Click]
+                //Tippy.trigger [MouseEnter; Click]
                 //Tippy.hideOnClick DontHide
                 //Tippy.inlinePositioning
                 //Tippy.interactive 
