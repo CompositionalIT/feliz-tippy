@@ -56,7 +56,7 @@ let view model dispatch =
                 //          Right = 0
                 //          Top = 0
                 //          Bottom = 0 })
-                //Tippy.trigger MouseEnterClick
+                Tippy.trigger [MouseEnter; Click]
                 //Tippy.hideOnClick DontHide
                 //Tippy.inlinePositioning
                 //Tippy.interactive 
@@ -64,7 +64,7 @@ let view model dispatch =
                 //Tippy.offset { Skidding = 200; Distance = 200 }
                 //Tippy.maxWidth 100
                 //Tippy.touch (LongPress (TimeSpan.FromSeconds 500.))
-                Tippy.zIndex 10
+                //Tippy.zIndex 10
                 prop.children [h1 [] [ str "feliz_tippy" ]]
             ]
         ]

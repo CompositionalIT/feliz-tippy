@@ -122,18 +122,18 @@ type HideOnClick =
     | Toggle
 
 type Trigger =
-    | MouseEnterFocus
+    | MouseEnter
+    | Focus
     | Click
     | FocusIn
-    | MouseEnterClick
     | Manual
 
     member this.Value =
         match this with
-        | MouseEnterFocus -> "mouseenter focus"
+        | MouseEnter -> "mouseenter"
+        | Focus -> "focus"
         | Click -> "click"
         | FocusIn -> "focusin"
-        | MouseEnterClick -> "mouseenter click"
         | Manual -> "manual"
 
 type Offset =
@@ -270,8 +270,9 @@ type Tippy =
 
     /// Determines the events that cause the tippy to show. 
     /// Multiple event names are separated by spaces.
-    static member inline trigger (trigger : Trigger) =
-        prop.custom("trigger", trigger.Value)
+    static member inline trigger (triggers : Trigger list) =
+        let triggers = triggers |> List.map (fun t -> t.Value)
+        prop.custom("trigger", String.concat " " triggers)
 
     /// Provides enhanced support for display: inline elements. 
     /// It will choose the most appropriate rect based on the placement.
