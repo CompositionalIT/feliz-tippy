@@ -323,9 +323,12 @@ type Tippy =
     //static member inline moveTransition (transition : Transition) =
     //    prop.custom("moveTransition", transition.Value)
 
+    ///Determines the theme of the tippy element. The core CSS defaults to a dark #333 theme. This can be 
+    /// overridden by a custom theme. See https://atomiks.github.io/tippyjs/v6/themes/ for details.
     static member inline theme (theme : Theme) =
         prop.custom("theme", theme.Value)
 
+    ///Determines the behavior on touch devices.
     static member inline touch (touchBehaviour : TouchBehaviour) =
         match touchBehaviour with
         | On -> prop.custom("touch", true)
