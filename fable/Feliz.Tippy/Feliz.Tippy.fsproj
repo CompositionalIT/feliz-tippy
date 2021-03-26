@@ -21,6 +21,7 @@
       <NpmPackage Name="@tippyjs/react" Version="gt 4.0.0 lt 5.0.0" ResolutionStrategy="Max" />
     </NpmDependencies>
     <Version>0.0.3-alpha</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>
