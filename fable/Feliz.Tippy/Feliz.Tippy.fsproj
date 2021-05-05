@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <PackageVersion>0.0.3-alpha</PackageVersion>
+    <PackageVersion>0.0.4-alpha</PackageVersion>
     <Title>Feliz.Tippy</Title>
     <Authors>Compositional IT</Authors>
     <Description>A Feliz wrapper for tippyjs-react.</Description>
