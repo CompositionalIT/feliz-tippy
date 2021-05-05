@@ -10,6 +10,10 @@
     <RepositoryUrl>https://github.com/CompositionalIT/feliz-tippy</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="..\..\CIT-logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <None Include="paket.references" />
     <Compile Include="Feliz.Tippy.fs" />
   </ItemGroup>
@@ -20,8 +24,9 @@
     <NpmDependencies>
       <NpmPackage Name="@tippyjs/react" Version="gt 4.0.0 lt 5.0.0" ResolutionStrategy="Max" />
     </NpmDependencies>
-    <Version>0.0.3-alpha</Version>
+    <Version>0.0.4-alpha</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageIcon>CIT-logo.png</PackageIcon>
   </PropertyGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>
