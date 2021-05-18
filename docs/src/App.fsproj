@@ -13,5 +13,6 @@
         <PackageReference Include="Feliz.Bulma" Version="2.15.0" />
         <PackageReference Include="Feliz.Router" Version="3.8.0" />
         <PackageReference Include="Fable.DateFunctions" Version="3.7.0" />
+        <PackageReference Include="Feliz.Tippy" Version="0.0.4" />
     </ItemGroup>
 </Project>

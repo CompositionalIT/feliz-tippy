@@ -12,6 +12,7 @@
         "publish-docs": "npm run build  && node publish.js"
     },
     "dependencies": {
+        "@tippyjs/react": "^4.2.5",
         "bulma": "^0.9.1",
         "date-fns": "^2.16.1",
         "gh-pages": "^3.1.0",

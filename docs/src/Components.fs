@@ -3,7 +3,7 @@ namespace App
 open Feliz.Bulma
 open Feliz
 open Fable.Core.JsInterop
-//open Feliz.Tippy
+open Feliz.Tippy
 
 type CitColors =
     static member lightBlue = "#40a8b7"
@@ -224,45 +224,24 @@ type Components =
                         StyledComponents.HeadingWithContent
                             "Demo"
                             (Html.div [
-                                //Tippy.create [
-                                //    Tippy.plugins [|
-                                //        Plugins.followCursor
-                                //        Plugins.animateFill
-                                //        Plugins.inlinePositioning |]
-                                //    Tippy.content (em [] [ str "hello world  xxxxxx yyyyy zzzzzz" ])
-                                //    Tippy.placement Auto
-                                    //Tippy.arrow false
-                                    //Tippy.arrow "<svg width=\"100\" height=\"100\"><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\" /></svg>"
-                                    //Tippy.delay (Milliseconds 500)
-                                    //Tippy.animation (Animation.Scale Extreme)
-                                    //Tippy.inertia
-                                    //Tippy.duration (show = Milliseconds 1000, hide = (Milliseconds 1000))
-                                    //Tippy.animateFill
-                                    //Tippy.followCursor true
-                                    //Tippy.disabled
-                                    //Tippy.getReferenceClientRect
-                                    //    (fun () ->
-                                    //        { Width = 10
-                                    //          Height = 10
-                                    //          Left = 0
-                                    //          Right = 0
-                                    //          Top = 0
-                                    //          Bottom = 0 })
-                                    //Tippy.trigger [MouseEnter; Click]
-                                    //Tippy.hideOnClick DontHide
-                                    //Tippy.inlinePositioning
-                                    //Tippy.interactive
-                                    //Tippy.interactiveBorder 100
-                                    //Tippy.offset { Skidding = 200; Distance = 200 }
-                                    //Tippy.maxWidth 100
-                                    //Tippy.touch (LongPress (TimeSpan.FromSeconds 500.))
-                                    //Tippy.zIndex 10
-                                //    prop.children [h1 [] [ str "feliz_tippy" ]]
-                                //]
-                            ])
-                        StyledComponents.HeadingWithContent
-                            "Props"
-                            (Html.div [
+                                prop.style [ style.display.flex; style.justifyContent.center; style.alignItems.center]
+                                prop.children [
+                                    Tippy.create [
+                                        Tippy.plugins [|
+                                            Plugins.followCursor
+                                            Plugins.animateFill
+                                            Plugins.inlinePositioning |]
+                                        Tippy.content ( Html.p "hello from tippy :)" )
+                                        prop.children [
+                                            Bulma.button.a [
+                                                prop.text "HOVER OVER ME"
+                                            ]
+                                        ]
+                                        Tippy.placement Auto
+                                        Tippy.animateFill
+                                        Tippy.interactive
+                                    ]
+                                ]
                             ])
 
                         StyledComponents.HeadingWithContent
@@ -273,7 +252,24 @@ femto install Feliz.Tippy""" )
 
                         StyledComponents.HeadingWithContent
                             "Sample Code"
-                            (StyledComponents.CodeBlock """ """ )
+                            (StyledComponents.CodeBlock """
+open Feliz.Tippy
+
+Tippy.create [
+    Tippy.plugins [|
+        Plugins.followCursor
+        Plugins.animateFill
+        Plugins.inlinePositioning |]
+    Tippy.content ( Html.p "hello from tippy :)" )
+    prop.children [
+        Bulma.button.a [
+            prop.text "HOVER OVER ME"
+        ]
+    ]
+    Tippy.placement Auto
+    Tippy.animateFill
+    Tippy.interactive
+]""" )
                     ]
                 ]
             ]
