@@ -24,7 +24,7 @@
     <NpmDependencies>
       <NpmPackage Name="@tippyjs/react" Version="gt 4.0.0 lt 5.0.0" ResolutionStrategy="Max" />
     </NpmDependencies>
-    <Version>0.0.4-alpha</Version>
+    <Version>0.0.4</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageIcon>CIT-logo.png</PackageIcon>
   </PropertyGroup>
