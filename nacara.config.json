@@ -1,0 +1,25 @@
+{
+    "siteMetadata": {
+        "url": "https://compositionalit.github.io",
+        "baseUrl": "/feliz-tippy/",
+        "title": "CIT"
+    },
+    "remarkPlugins": [
+        {
+            "resolve": "remark-code-import"
+        },
+        {
+            "resolve": "gatsby-remark-vscode",
+            "property": "remarkPlugin",
+            "options": {
+                "theme": "Atom One Light",
+                "extensions": [
+                    "vscode-theme-onelight"
+                ]
+            }
+        }
+    ],
+    "layouts": [
+        "./layouts/simple-doc.jsx"
+    ]
+}

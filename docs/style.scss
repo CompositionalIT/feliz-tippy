@@ -1,0 +1,56 @@
+@import "./../node_modules/bulma/sass/utilities/initial-variables";
+
+/////////////////////////////////
+/// Customize Bulma
+/////////////////////////////////
+// $fable-blue: dodgerblue;
+// $purple: #7a325d;
+// $blue: #0055a4;
+$primary: rgb(16, 32, 53);
+// $black: #202020;
+// $text: #444;
+
+@import "./../node_modules/bulma/sass/utilities/derived-variables";
+
+// Specific to gatsby-remark-vscode usage
+$content-pre-padding: unset;
+
+/////////////////////////////////
+/// Customize Bulma
+/////////////////////////////////
+
+$navbar-padding-vertical: 0.25rem;
+$link: $primary;
+
+$family-primary: "Nunito sans";
+
+@import "../node_modules/bulma/sass/utilities/_all.sass";
+@import "./../node_modules/bulma/bulma.sass";
+@import "./../node_modules/nacara-layout-standard/scss/nacara.scss";
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+// Begin gatsby-remark-vscode specific
+:root {
+    --grvsc-padding-v: 1.25rem;
+}
+
+// Make the code use the full width for when user use line highlighting
+.content {
+    pre > code {
+        width: 100%;
+    }
+}
+// End gatsby-remark-vscode specific
+
+// Disable hover style on the navbar-brand element
+.navbar-brand {
+    .navbar-item:hover {
+        background-color: transparent !important;
+    }
+}
+
+.has-border-bottom {
+    border-bottom-color: $primary;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+}
