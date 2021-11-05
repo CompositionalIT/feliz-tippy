@@ -379,3 +379,5 @@ FodyWeavers.xsd
 
 docs_deploy/
 .nacara
+demo/fableBuild/
+docs/public/js/

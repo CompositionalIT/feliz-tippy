@@ -3,9 +3,5 @@ source https://api.nuget.org/v3/index.json
 framework: net5.0
 
 nuget FSharp.Core
-nuget Fable.Core 
-nuget Fable.Elmish 
-nuget Fable.Elmish.Debugger 
-nuget Fable.Elmish.Hmr 
-nuget Fable.Elmish.React 
-nuget Feliz 
+nuget Fable.Core
+nuget Feliz

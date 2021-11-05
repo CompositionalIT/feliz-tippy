@@ -1,25 +1,31 @@
 {
     "private": true,
     "engines": {
-        "node": ">=14.0.0",
+        "node": "^12.20.0 || ^14.13.1 || >=16.0.0",
         "npm": ">=7.0.0"
     },
     "type": "module",
     "scripts": {
+        "postinstall": "dotnet tool restore",
+        "demo:watch": "cd demo && dotnet fable src --watch --outDir fableBuild --run webpack serve --mode development",
+        "demo:build": "cd demo && dotnet fable src --outDir fableBuild --run webpack --mode production",
         "docs:clean": "nacara clean",
-        "docs:build": "nacara build",
-        "docs:serve": "nacara serve",
-        "docs:watch": "nacara watch"
+        "docs:watch": "nacara watch",
+        "docs:build": "npm run demo:build && nacara build",
+        "docs:serve": "npm run docs:build && nacara serve",
+        "docs:publish": "npm run docs:build && gh-pages --dist docs_deploy"
     },
     "devDependencies": {
         "@babel/preset-react": "^7.16.0",
         "bulma": "^0.9.3",
         "gatsby-remark-vscode": "^3.3.0",
+        "gh-pages": "^3.2.3",
         "nacara": "^1.1.0",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "remark-code-import": "^0.3.0",
         "sass": "^1.43.4",
+        "shx": "^0.3.3",
         "unified": "^10.1.0",
         "vscode-theme-onelight": "github:akamud/vscode-theme-onelight"
     }

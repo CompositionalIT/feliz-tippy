@@ -1,51 +1,56 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.30804.86
-MinimumVisualStudioVersion = 15.0.26124.0
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{08CCFCF6-2248-43ED-A6EF-E972A2DA0E6A}"
-	ProjectSection(SolutionItems) = preProject
-		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
-		global.json = global.json
-		package-lock.json = package-lock.json
-		package.json = package.json
-		paket.dependencies = paket.dependencies
-		paket.lock = paket.lock
-		README.md = README.md
-		webpack.config.js = webpack.config.js
-	EndProjectSection
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fable", "fable", "{EE9DE5E1-B4DD-49CB-BAFB-B77F8A874E18}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F84DCF8A-FC1A-4677-AF4D-616AD7DB3470}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Feliz.Tippy", "fable\Feliz.Tippy\Feliz.Tippy.fsproj", "{81CF3E23-677B-4F2A-BA44-2C6DD74A136E}"
 EndProject
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "SampleApp", "src\SampleApp\SampleApp.fsproj", "{B96F7A7F-86B5-48C3-A038-A1A76AE25FC5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demo", "demo", "{94D21226-2FF1-4667-A8F3-9DA8EB4CEE9F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fable", "fable", "{85680BF7-3520-4E40-A4F1-698DB6BE2D83}"
-EndProject
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Feliz.Tippy", "fable\Feliz.Tippy\Feliz.Tippy.fsproj", "{9C9EA2A3-F680-4A1E-850E-F9BDFBE074BA}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "App", "demo\src\App.fsproj", "{333805E8-6651-42F6-B564-92D6FAE666FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B96F7A7F-86B5-48C3-A038-A1A76AE25FC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B96F7A7F-86B5-48C3-A038-A1A76AE25FC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B96F7A7F-86B5-48C3-A038-A1A76AE25FC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B96F7A7F-86B5-48C3-A038-A1A76AE25FC5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9C9EA2A3-F680-4A1E-850E-F9BDFBE074BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9C9EA2A3-F680-4A1E-850E-F9BDFBE074BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9C9EA2A3-F680-4A1E-850E-F9BDFBE074BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9C9EA2A3-F680-4A1E-850E-F9BDFBE074BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{B96F7A7F-86B5-48C3-A038-A1A76AE25FC5} = {F84DCF8A-FC1A-4677-AF4D-616AD7DB3470}
-		{9C9EA2A3-F680-4A1E-850E-F9BDFBE074BA} = {85680BF7-3520-4E40-A4F1-698DB6BE2D83}
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81CF3E23-677B-4F2A-BA44-2C6DD74A136E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81CF3E23-677B-4F2A-BA44-2C6DD74A136E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81CF3E23-677B-4F2A-BA44-2C6DD74A136E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{81CF3E23-677B-4F2A-BA44-2C6DD74A136E}.Debug|x64.Build.0 = Debug|Any CPU
+		{81CF3E23-677B-4F2A-BA44-2C6DD74A136E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{81CF3E23-677B-4F2A-BA44-2C6DD74A136E}.Debug|x86.Build.0 = Debug|Any CPU
+		{81CF3E23-677B-4F2A-BA44-2C6DD74A136E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81CF3E23-677B-4F2A-BA44-2C6DD74A136E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81CF3E23-677B-4F2A-BA44-2C6DD74A136E}.Release|x64.ActiveCfg = Release|Any CPU
+		{81CF3E23-677B-4F2A-BA44-2C6DD74A136E}.Release|x64.Build.0 = Release|Any CPU
+		{81CF3E23-677B-4F2A-BA44-2C6DD74A136E}.Release|x86.ActiveCfg = Release|Any CPU
+		{81CF3E23-677B-4F2A-BA44-2C6DD74A136E}.Release|x86.Build.0 = Release|Any CPU
+		{333805E8-6651-42F6-B564-92D6FAE666FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{333805E8-6651-42F6-B564-92D6FAE666FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{333805E8-6651-42F6-B564-92D6FAE666FF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{333805E8-6651-42F6-B564-92D6FAE666FF}.Debug|x64.Build.0 = Debug|Any CPU
+		{333805E8-6651-42F6-B564-92D6FAE666FF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{333805E8-6651-42F6-B564-92D6FAE666FF}.Debug|x86.Build.0 = Debug|Any CPU
+		{333805E8-6651-42F6-B564-92D6FAE666FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{333805E8-6651-42F6-B564-92D6FAE666FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{333805E8-6651-42F6-B564-92D6FAE666FF}.Release|x64.ActiveCfg = Release|Any CPU
+		{333805E8-6651-42F6-B564-92D6FAE666FF}.Release|x64.Build.0 = Release|Any CPU
+		{333805E8-6651-42F6-B564-92D6FAE666FF}.Release|x86.ActiveCfg = Release|Any CPU
+		{333805E8-6651-42F6-B564-92D6FAE666FF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D67FA26D-65F1-4861-AB5F-0F440F2C816E}
+	GlobalSection(NestedProjects) = preSolution
+		{81CF3E23-677B-4F2A-BA44-2C6DD74A136E} = {EE9DE5E1-B4DD-49CB-BAFB-B77F8A874E18}
+		{333805E8-6651-42F6-B564-92D6FAE666FF} = {94D21226-2FF1-4667-A8F3-9DA8EB4CEE9F}
 	EndGlobalSection
 EndGlobal

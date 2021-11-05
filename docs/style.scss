@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 @import "./../node_modules/bulma/sass/utilities/initial-variables";
 
 /////////////////////////////////
@@ -13,7 +15,7 @@ $primary: rgb(16, 32, 53);
 @import "./../node_modules/bulma/sass/utilities/derived-variables";
 
 // Specific to gatsby-remark-vscode usage
-$content-pre-padding: unset;
+// $content-pre-padding: unset;
 
 /////////////////////////////////
 /// Customize Bulma
@@ -26,8 +28,11 @@ $family-primary: "Nunito sans";
 
 @import "../node_modules/bulma/sass/utilities/_all.sass";
 @import "./../node_modules/bulma/bulma.sass";
-@import "./../node_modules/nacara-layout-standard/scss/nacara.scss";
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+$font-awesome-url: "https://use.fontawesome.com/releases/v5.15.4/css/all.css" !default;
+
+@import url($font-awesome-url);
 
 // Begin gatsby-remark-vscode specific
 :root {
@@ -42,15 +47,15 @@ $family-primary: "Nunito sans";
 }
 // End gatsby-remark-vscode specific
 
-// Disable hover style on the navbar-brand element
-.navbar-brand {
-    .navbar-item:hover {
-        background-color: transparent !important;
-    }
-}
-
 .has-border-bottom {
     border-bottom-color: $primary;
     border-bottom-style: solid;
     border-bottom-width: 2px;
+}
+
+// Make the demo looks nice
+#demo-container {
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
 }

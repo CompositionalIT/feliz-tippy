@@ -2,6 +2,26 @@ import React from "react";
 import path from "path";
 
 /**
+ * Plugins specific to this layout
+ */
+const remarkPlugins =
+    [
+        {
+            Resolve: "remark-code-import"
+        },
+        {
+            Resolve: "gatsby-remark-vscode",
+            Property: "remarkPlugin",
+            Options: {
+                "theme": "Atom One Light",
+                "extensions": [
+                    "vscode-theme-onelight"
+                ]
+            }
+        }
+    ]
+
+/**
  * Include live-reload.js script when in watch mode
  */
 const LiveReloadScript = ({ rendererContext }) => {
@@ -20,7 +40,7 @@ const LiveReloadScript = ({ rendererContext }) => {
  *
  * Note: This navbar doesn't generate any navbar items, coming from the navbar config
  */
-const Navbar = ({ rendererContext }) => {
+const Navbar = ({ rendererContext, github_link }) => {
     return (
         <div className="navbar is-primary is-spaced">
             <div className="container">
@@ -32,6 +52,17 @@ const Navbar = ({ rendererContext }) => {
                             alt="Nacara" />
                         <div className="subtitle is-2 ml-2 has-text-white">
                             Compositional IT
+                        </div>
+                    </div>
+                </div>
+                <div className="navbar-menu">
+                    <div className="navbar-end">
+                        <div className="navbar-item">
+                            <a className="button is-primary" href={github_link}>
+                                <span className="icon is-large">
+                                    <i className="fab fa-2x fa-github"></i>
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -131,7 +162,7 @@ const SampleCode = ({htmlContent}) => {
     )
 }
 
-const PageContainer = ({ rendererContext, pageContext, attributes }) => {
+const PageContainer = ({ rendererContext, pageContext, attributes, pageContent }) => {
     let titleStr = rendererContext.Config.SiteMetadata.Title;
 
     if (pageContext.Title) {
@@ -154,7 +185,9 @@ const PageContainer = ({ rendererContext, pageContext, attributes }) => {
             </head>
 
             <body>
-                <Navbar rendererContext={rendererContext} pageContext={pageContext} />
+                <Navbar
+                    rendererContext={rendererContext}
+                    github_link={attributes.github_link} />
 
                 <div className="container section">
                     <Introduction
@@ -166,6 +199,8 @@ const PageContainer = ({ rendererContext, pageContext, attributes }) => {
                     <DemoContainer />
                     <Installation instruction={attributes.installation_instruction} />
                     <SampleCode htmlContent={attributes.sample_html} />
+
+                    <div dangerouslySetInnerHTML={{ __html: pageContent }} />
                 </div>
 
                 <LiveReloadScript rendererContext={rendererContext} />
@@ -192,15 +227,31 @@ const extractAttributes = (attributes) => {
         nuget_link : extractAttribute("nuget_link"),
         introduction : extractAttribute("introduction"),
         sample_file : extractAttribute("sample_file"),
+        github_link : extractAttribute("github_link")
     }
 }
 
 const preProcessMarkdown = async (rendererContext, pageContext, attributes) => {
-    attributes.installation_instruction = await rendererContext.MarkdownToHtml(attributes.installation_instruction, pageContext.RelativePath);
+    attributes.installation_instruction =
+        await rendererContext.MarkdownToHtml(
+            attributes.installation_instruction,
+            pageContext.RelativePath,
+            remarkPlugins
+        );
 
     // We are going to use the extension file for the syntax highlighting
-    const sampleExtension =
+    let sampleExtension =
         path.extname(attributes.sample_file).substr(1);
+
+    // If a line number has been specified, we need to remove it
+    // to get the file extension
+    // Example:
+    //  ./../demo/src/Components.fs#L9-
+    //      => fs#L9
+    //      => fs
+    if (sampleExtension.indexOf("#") !== -1) {
+        sampleExtension = sampleExtension.substr(0, sampleExtension.indexOf("#"));
+    }
 
     // Generate a code blocks which will import the sample file content
     // before applying syntax highlighting to it
@@ -211,7 +262,12 @@ const preProcessMarkdown = async (rendererContext, pageContext, attributes) => {
 \`\`\`
         `
 
-    attributes.sample_html = await rendererContext.MarkdownToHtml(sampleMarkdown, pageContext.RelativePath);
+    attributes.sample_html =
+        await rendererContext.MarkdownToHtml(
+            sampleMarkdown,
+            pageContext.RelativePath,
+            remarkPlugins
+        );
 }
 
 const render = async (rendererContext, pageContext) => {
@@ -219,9 +275,17 @@ const render = async (rendererContext, pageContext) => {
 
     await preProcessMarkdown(rendererContext, pageContext, attributes);
 
+    const pageContent =
+        await rendererContext.MarkdownToHtml(
+            pageContext.Content,
+            pageContext.RelativePath,
+            remarkPlugins
+        );
+
     return <PageContainer
         rendererContext={rendererContext}
         pageContext={pageContext}
+        pageContent={pageContent}
         attributes={attributes} />;
 }
 
