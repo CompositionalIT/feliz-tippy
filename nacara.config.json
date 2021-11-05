@@ -1,0 +1,10 @@
+{
+    "siteMetadata": {
+        "url": "https://compositionalit.github.io",
+        "baseUrl": "/feliz-tippy/",
+        "title": "CIT"
+    },
+    "layouts": [
+        "./layouts/simple-doc.jsx"
+    ]
+}

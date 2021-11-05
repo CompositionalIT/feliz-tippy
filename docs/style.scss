@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+@import "./../node_modules/bulma/sass/utilities/initial-variables";
+
+/////////////////////////////////
+/// Customize Bulma
+/////////////////////////////////
+$primary: rgb(16, 32, 53);
+
+@import "./../node_modules/bulma/sass/utilities/derived-variables";
+
+/////////////////////////////////
+/// Customize Bulma
+/////////////////////////////////
+
+$navbar-padding-vertical: 0.25rem;
+$link: $primary;
+
+$family-primary: "Nunito sans";
+
+@import "../node_modules/bulma/sass/utilities/_all.sass";
+@import "./../node_modules/bulma/bulma.sass";
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+$font-awesome-url: "https://use.fontawesome.com/releases/v5.15.4/css/all.css" !default;
+
+@import url($font-awesome-url);
+
+// Begin gatsby-remark-vscode specific
+:root {
+    --grvsc-padding-v: 1.25rem;
+}
+
+// Make the code use the full width for when user use line highlighting
+.content {
+    pre > code {
+        width: 100%;
+    }
+}
+// End gatsby-remark-vscode specific
+
+.has-border-bottom {
+    border-bottom-color: $primary;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+}
+
+// Make the demo looks nice
+#demo-container {
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+}
