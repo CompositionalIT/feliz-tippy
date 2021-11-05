@@ -239,6 +239,13 @@ const preProcessMarkdown = async (rendererContext, pageContext, attributes) => {
             remarkPlugins
         );
 
+    attributes.introduction =
+        await rendererContext.MarkdownToHtml(
+            attributes.introduction,
+            pageContext.RelativePath,
+            remarkPlugins
+        );
+
     // We are going to use the extension file for the syntax highlighting
     let sampleExtension =
         path.extname(attributes.sample_file).substr(1);
@@ -292,7 +299,7 @@ const render = async (rendererContext, pageContext) => {
 export default {
     Renderers: [
         {
-            Name: "simple-doc",
+            Name: "simple-binding-layout",
             Func: render
         }
     ],

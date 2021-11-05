@@ -1,6 +1,6 @@
 ---
 title: Feliz.Tippy
-layout: simple-doc
+layout: simple-binding-layout
 nuget_link: https://www.nuget.org/packages/Feliz.Tippy/
 npm_link: https://www.npmjs.com/package/@tippyjs/react
 github_link: https://github.com/CompositionalIT/feliz-tippy
