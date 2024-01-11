@@ -320,9 +320,9 @@ type Tippy =
     // Useful when you have a singleton Tippy instance to define how it transitions from one place to another.
     // I haven't implemented the singleton functionality yet though.
     //
-    /// Specifies the transition applied to the root positioned popper node. This describes
-    /// the transition between "moves" (or position updates) of the popper element when it
-    /// e.g. flips or changes target location.
+    // Specifies the transition applied to the root positioned popper node. This describes
+    // the transition between "moves" (or position updates) of the popper element when it
+    // e.g. flips or changes target location.
     //static member inline moveTransition (transition : Transition) =
     //    prop.custom("moveTransition", transition.Value)
 

@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
         <None Include="index.html" />
@@ -9,10 +9,12 @@
         <Compile Include="Main.fs" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Feliz" Version="1.42.0" />
-        <PackageReference Include="Feliz.Bulma" Version="2.15.0" />
-        <PackageReference Include="Feliz.Router" Version="3.8.0" />
+        <ProjectReference Include="..\..\fable\Feliz.Tippy\Feliz.Tippy.fsproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Feliz" Version="2.7.0" />
+        <PackageReference Include="Feliz.Bulma" Version="3.0.0" />
+        <PackageReference Include="Feliz.Router" Version="4.0.0" />
         <PackageReference Include="Fable.DateFunctions" Version="3.7.0" />
-        <PackageReference Include="Feliz.Tippy" Version="0.0.4" />
     </ItemGroup>
 </Project>

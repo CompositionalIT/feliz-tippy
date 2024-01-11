@@ -1,15 +1,8 @@
 module Index
 
-open Elmish
-
-open Fable.Core.JsInterop
-
-open Fable.React
-open Fable.React.Props
-
 open Feliz.Tippy
 open Feliz
-open System
+open Elmish
 
 
 type Model =
@@ -29,9 +22,9 @@ let update msg model =
         { model with Hello = hello }, Cmd.none
 
 let view model dispatch =
-    div [ Style [ TextAlign TextAlignOptions.Center; Padding 40 ] ] [
-        div [] [
-            img [ Src "favicon.png" ]
+    Html.div [
+        Html.div [
+            Html.img [ prop.src "favicon.png" ]
             Tippy.create [
                 Tippy.plugins [|
                     Plugins.followCursor
